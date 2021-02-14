@@ -20,5 +20,7 @@ public class Gestor_myAirline {
         p.setVisible(true);
         
         System.out.println("Actualizar repositorio");
+        
+        System.out.println("Edito desde GitHub");
     }    
 }
