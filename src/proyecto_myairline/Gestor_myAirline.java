@@ -18,5 +18,7 @@ public class Gestor_myAirline {
         
         ca.iniciar();
         p.setVisible(true);
+        
+        System.out.println("Actualizar repositorio");
     }    
 }
