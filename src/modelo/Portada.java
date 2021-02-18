@@ -18,6 +18,7 @@ public class Portada {
     
     public String presentar ()
     {
+        this.aux = "Aporte de prueba\n";
         this.aux = "Programa para gestionar \nlas tareas de un aeropuerto\n";
         this.aux += "Este programa se desarrolla \nmediante el patron \nModelo Vista Controlador";
         return aux;

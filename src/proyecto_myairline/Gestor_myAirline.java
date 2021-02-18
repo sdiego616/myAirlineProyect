@@ -8,6 +8,7 @@ import vista.Presentacion;
 public class Gestor_myAirline {
 
     public static void main(String[] args) {
+        System.out.println("Aporte de prueba");
         System.out.println("Programa para gestionar las tareas de un aeropuerto");
         System.out.println("Este programa se desarrolla mediante el patron Modelo Vista Controlador");
         
