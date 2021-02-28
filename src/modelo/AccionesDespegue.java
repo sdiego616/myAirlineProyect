@@ -10,5 +10,8 @@ package modelo;
  * @author User
  */
 public interface AccionesDespegue {
+    public void trazarRuta();
+    public void calcularDistancia();
+    public void cancelarDespegue();
     
 }
