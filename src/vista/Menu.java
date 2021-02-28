@@ -5,6 +5,10 @@
  */
 package vista;
 
+import controlador.ControladorClima;
+import controlador.ControladorMenu;
+import controlador.ControladorSelectAsientos;
+
 /**
  *
  * @author andyp
@@ -54,7 +58,6 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Bienvenido/a, \"nombre de usuario\".", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         btnReservacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnReservacion.setIcon(new javax.swing.ImageIcon("C:\\Users\\andyp\\Downloads\\images.png")); // NOI18N
         btnReservacion.setText(" Reservación");
         btnReservacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnReservacion.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +67,6 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnClima.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnClima.setIcon(new javax.swing.ImageIcon("C:\\Users\\andyp\\Downloads\\clima.jpg")); // NOI18N
         btnClima.setText("Clima");
         btnClima.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnClima.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +76,6 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnRutas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnRutas.setIcon(new javax.swing.ImageIcon("C:\\Users\\andyp\\Downloads\\rutas.jpg")); // NOI18N
         btnRutas.setText("Rutas");
         btnRutas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRutas.addActionListener(new java.awt.event.ActionListener() {
@@ -85,8 +86,6 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\andyp\\Downloads\\clouds-cumulus-nature-cloudiness.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -148,8 +147,6 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(127, 127, 127))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\andyp\\Downloads\\logo app - copia.png")); // NOI18N
-
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Misión:"));
 
         jLabel5.setText("Prestar servicios aéreos de calidad,");
@@ -189,7 +186,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9))
         );
 
@@ -270,7 +267,9 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservacionActionPerformed
-        // TODO add your handling code here:
+        ReservacionA revA = new ReservacionA();
+        revA.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnReservacionActionPerformed
 
     private void btnClimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClimaActionPerformed
@@ -287,58 +286,45 @@ public class Menu extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
+        
+        Menu vMenu = new Menu();
+        ControladorMenu cm = new ControladorMenu(vMenu);
+        vMenu.setVisible(true);
+        vMenu.setLocationRelativeTo(vMenu);
+//        
+//        Clima vClima = new Clima();
+//        ControladorClima cc = new ControladorClima(vClima);
+//        vClima.setVisible(true);
+//        vClima.setLocationRelativeTo(vClima);   
+//
+//        SeleccionarAsientosFrm v = new SeleccionarAsientosFrm();
+//        ControladorSelectAsientos csa = new ControladorSelectAsientos(v);
+//        v.setVisible(true);
+//        v.setLocationRelativeTo(v);
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClima;
-    private javax.swing.JButton btnReservacion;
-    private javax.swing.JButton btnRutas;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    public javax.swing.JButton btnClima;
+    public javax.swing.JButton btnReservacion;
+    public javax.swing.JButton btnRutas;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel9;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
