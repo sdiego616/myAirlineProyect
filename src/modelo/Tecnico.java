@@ -61,4 +61,9 @@ public class Tecnico extends Persona implements AccionesReserva, AccionesClima, 
     public void retirarEquipaje() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void seleccionarAsiento() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
