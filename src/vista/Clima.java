@@ -5,6 +5,10 @@
  */
 package vista;
 
+import controlador.ControladorClima;
+import controlador.ControladorMenu;
+import controlador.ControladorSelectAsientos;
+
 /**
  *
  * @author andyp
@@ -39,15 +43,13 @@ public class Clima extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         btnClimaVolver = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         jLabel4.setText("27/02/2021    12:27");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\andyp\\Downloads\\logo app - copia.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Clima");
@@ -114,7 +116,7 @@ public class Clima extends javax.swing.JFrame {
 
         jLabel5.setText("27/02/2021    12:27");
 
-        jButton1.setText("Actualizar");
+        btnActualizar.setText("Actualizar");
 
         btnClimaVolver.setText("Volver");
         btnClimaVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -122,8 +124,6 @@ public class Clima extends javax.swing.JFrame {
                 btnClimaVolverActionPerformed(evt);
             }
         });
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\andyp\\Downloads\\clouds-cumulus-nature-cloudiness.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,7 +140,7 @@ public class Clima extends javax.swing.JFrame {
                             .addGap(222, 222, 222)
                             .addComponent(btnClimaVolver)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1))
+                            .addComponent(btnActualizar))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(37, 37, 37)
@@ -172,7 +172,7 @@ public class Clima extends javax.swing.JFrame {
                         .addGap(36, 36, 36)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClimaVolver)
-                    .addComponent(jButton1))
+                    .addComponent(btnActualizar))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -210,55 +210,23 @@ public class Clima extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Clima().setVisible(true);
-            }
-        });
+        
+//        Menu v = new Menu();
+//        ControladorMenu csa = new ControladorMenu(v);
+//        v.setVisible(true);
+//        v.setLocationRelativeTo(v);
+        
+        Clima vClima = new Clima();
+        ControladorClima cc = new ControladorClima(vClima);
+        vClima.setVisible(true);
+        vClima.setLocationRelativeTo(vClima);
+        
+                
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClimaVolver;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnActualizar;
+    public javax.swing.JButton btnClimaVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -269,8 +237,8 @@ public class Clima extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
