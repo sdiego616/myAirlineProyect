@@ -34,14 +34,14 @@ public class ReservacionA extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtCelular = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
-        DirecciónÑ = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
-        DirecciónÑ1 = new javax.swing.JLabel();
+        lblRutas = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnSig1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -56,13 +56,13 @@ public class ReservacionA extends javax.swing.JFrame {
 
         lblNombre.setText("Nombre:");
 
-        jLabel2.setText("Apellido:");
+        lblApellido.setText("Apellido:");
 
         jLabel3.setText("Celular:");
 
-        DirecciónÑ.setText("Dirección:");
+        lblDireccion.setText("Dirección:");
 
-        DirecciónÑ1.setText("Correo:");
+        lblRutas.setText("Correo:");
 
         jLabel4.setText("Información Personal");
 
@@ -137,9 +137,9 @@ public class ReservacionA extends javax.swing.JFrame {
                                 .addComponent(jLabel4))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DirecciónÑ1)
-                                    .addComponent(DirecciónÑ)
-                                    .addComponent(jLabel2)
+                                    .addComponent(lblRutas)
+                                    .addComponent(lblDireccion)
+                                    .addComponent(lblApellido)
                                     .addComponent(jLabel3)
                                     .addComponent(lblNombre))
                                 .addGap(74, 74, 74)
@@ -168,7 +168,7 @@ public class ReservacionA extends javax.swing.JFrame {
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblApellido)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -176,11 +176,11 @@ public class ReservacionA extends javax.swing.JFrame {
                     .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DirecciónÑ)
+                    .addComponent(lblDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DirecciónÑ1)
+                    .addComponent(lblRutas)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,20 +228,20 @@ public class ReservacionA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel DirecciónÑ;
-    public javax.swing.JLabel DirecciónÑ1;
     public javax.swing.JButton btnAgregarEq;
     public javax.swing.JButton btnSig1;
     public javax.swing.JComboBox<String> cmbDescripcion;
-    private javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel lblApellido;
+    public javax.swing.JLabel lblDireccion;
     public javax.swing.JLabel lblNombre;
+    public javax.swing.JLabel lblRutas;
     public javax.swing.JTextField txtApellido;
     public javax.swing.JTextField txtCelular;
     public javax.swing.JTextField txtCorreo;

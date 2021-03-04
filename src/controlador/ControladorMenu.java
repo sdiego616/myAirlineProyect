@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import vista.Clima;
 import vista.Menu;
 import vista.ReservacionA;
+import vista.RutasFrm;
 
 /**
  *
@@ -58,9 +59,12 @@ public class ControladorMenu implements ActionListener {
         vMenu.dispose();
     }
     
-//    public void abrirRutas()
-//    {
-//        Clima clima = new Clima();
-//    }
+    public void abrirRutas()
+    {
+        RutasFrm ruta = new RutasFrm();
+        ruta.setVisible(true);
+        vMenu.dispose();
+      
+   }
     
 }

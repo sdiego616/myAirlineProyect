@@ -17,7 +17,5 @@ public class TecnicoDAO {
         documentoTecnico.put("COrreo","'" + t.getCorreo() + "'");
         documentoTecnico.put("Codigo técnico","'" + t.getCodigoTecnico() + "'");
         
-    }
-
-    
+    } 
 }

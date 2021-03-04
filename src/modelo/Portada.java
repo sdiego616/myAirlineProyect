@@ -4,8 +4,7 @@ package modelo;
 public class Portada {
     private String aux;
 
-    public Portada() {
-        
+    public Portada() {  
     }
 
     public String getAux() {
