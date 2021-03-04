@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import modelo.Tecnico;
 import vista.Clima;
 import vista.Menu;
 
@@ -18,6 +19,7 @@ import vista.Menu;
 public class ControladorClima implements ActionListener {
 
     Clima clima = new Clima();
+    Tecnico tec = new Tecnico();
     
     public ControladorClima(Clima c)
     {
@@ -45,6 +47,11 @@ public class ControladorClima implements ActionListener {
         Menu menu = new Menu();
         menu.setVisible(true);
         
+    }
+    
+    public void tiempoNow ()
+    {
+        clima.lblTiempo.setText(tec.tiempoNow().toString());
     }
     
 }

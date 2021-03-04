@@ -5,12 +5,20 @@
  */
 package controlador;
 
+import com.mongodb.BasicDBObject;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.table.DefaultTableModel;
+import modelo.Pasajero;
+import modelo.PasajeroDAO;
+import modelo.Tecnico;
+import modelo.Vuelo;
 import vista.Menu;
 import vista.SeleccionarAsientosFrm;
 
@@ -24,7 +32,10 @@ public class ControladorSelectAsientos implements ActionListener {
     //Cliente c = new Cliente();
     SeleccionarAsientosFrm vista = new SeleccionarAsientosFrm();
     //DefaultTableModel modelo = new DefaultTableModel();
-
+    Tecnico tec = new Tecnico ();
+    Pasajero ps = new Pasajero ();
+    PasajeroDAO dao = new PasajeroDAO();
+    
     public ControladorSelectAsientos (SeleccionarAsientosFrm v)
     {
         this.vista = v;
@@ -59,34 +70,43 @@ public class ControladorSelectAsientos implements ActionListener {
         if(ae.getSource() == vista.primeraClase1)
         {
             reservarAsiento1();
+            agregarAsientoA1();
+            //vista.dispose();
         }
         if(ae.getSource() == vista.primeraClase2)
         {
             reservarAsiento2();
+            agregarAsientoA2();
         }
         if(ae.getSource() == vista.primeraClase3)
         {
             reservarAsiento3();
+            agregarAsientoB1();
         }
         if(ae.getSource() == vista.primeraClase4)
         {
             reservarAsiento4();
+            agregarAsientoB2();
         }
         if(ae.getSource() == vista.claseEjecutiva1)
         {
             reservarAsiento5();
+            agregarAsientoC1();
         }
         if(ae.getSource() == vista.claseEjecutiva2)
         {
             reservarAsiento6();
+            agregarAsientoC2();
         }
         if(ae.getSource() == vista.claseEjecutiva3)
         {
             reservarAsiento7();
+            agregarAsientoC3();
         }
         if(ae.getSource() == vista.claseTurista1)
         {
             reservarAsiento8();
+            agregarAsientoD1();
         }
         if(ae.getSource() == vista.claseTurista2)
         {
@@ -150,37 +170,620 @@ public class ControladorSelectAsientos implements ActionListener {
         }
         if(ae.getSource() == vista.btnReservar)
         {
-            finalizarReserva();
+            //finalizarReserva();
         }
+    }
+    
+    public void agregarAsientoA1()
+    {
+        ps.setTipoAsiento("A1");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoA2()
+    {
+        ps.setTipoAsiento("A2");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoB1()
+    {
+        ps.setTipoAsiento("B1");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoB2()
+    {
+        ps.setTipoAsiento("B2");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoC1()
+    {
+        ps.setTipoAsiento("C1");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoC2()
+    {
+        ps.setTipoAsiento("C2");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoC3()
+    {
+        ps.setTipoAsiento("C3");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoD1()
+    {
+        ps.setTipoAsiento("D1");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoD2()
+    {
+        ps.setTipoAsiento("D2");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoD3()
+    {
+        ps.setTipoAsiento("D3");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoD4()
+    {
+        ps.setTipoAsiento("D4");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoE1()
+    {
+        ps.setTipoAsiento("E1");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoE2()
+    {
+        ps.setTipoAsiento("E2");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoE3()
+    {
+        ps.setTipoAsiento("E3");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoE4()
+    {
+        ps.setTipoAsiento("E4");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoF1()
+    {
+        ps.setTipoAsiento("F1");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoF2()
+    {
+        ps.setTipoAsiento("F2");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoF3()
+    {
+        ps.setTipoAsiento("F3");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoF4()
+    {
+        ps.setTipoAsiento("F4");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoG1()
+    {
+        ps.setTipoAsiento("G1");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoG2()
+    {
+        ps.setTipoAsiento("G2");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoG3()
+    {
+        ps.setTipoAsiento("G3");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void agregarAsientoG4()
+    {
+        ps.setTipoAsiento("G4");
+        
+        BasicDBObject objB = new BasicDBObject();
+        
+        Iterator <Pasajero> i = dao.obtenerPasajeros().iterator();
+        Pasajero aux = new Pasajero();
+        int k = 0;
+        while (i.hasNext())
+        {
+            aux= i.next();
+            if (aux.getCodigoPasajero().equals(this.selectCodigoPs()))
+            {
+                objB.append("codigoPasajero", this.selectCodigoPs());
+                System.out.println("lee el codigoPs " + this.selectCodigoPs());
+                break;
+            }
+            k ++;
+        }
+        
+        tec.updateVuelo(objB, ps.toDBTipoAsiento());
+    }
+    
+    public void setCombPs()
+    {
+        //dao.obtenerPasajeros();
+        //String [] cods = new String [dao.obtenerPasajeros().size()];
+        String aux;
+        //String auxBuscar;
+        Pasajero auxps;
+        for (int i = 0; i < dao.obtenerPasajeros().size(); i ++)
+        {
+            auxps = (Pasajero) dao.obtenerPasajeros().get(i);
+            aux = auxps.getNombre() +" "+ auxps.getApellido();
+            vista.cmbPasajeros.addItem(aux);
+        }
+    }
+    
+    public String selectCodigoPs()
+    {
+        String aux = new String();
+        Pasajero auxps;
+        for (int i = 0; i < dao.obtenerPasajeros().size(); i ++)
+        {
+            auxps = (Pasajero) dao.obtenerPasajeros().get(i);
+            if ((auxps.getNombre()+ " " +auxps.getApellido()).equals(vista.cmbPasajeros.getSelectedItem()))
+            {
+                aux = auxps.getCodigoPasajero();
+                break;
+            }
+        }
+        return aux;
     }
     
     public void reservarAsiento1 ()
     {
-        vista.primeraClase1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
+        vista.primeraClase1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoPC.png")));
     }
     public void reservarAsiento2 ()
     {
-        vista.primeraClase2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
+        vista.primeraClase2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoPC.png")));
     }
     public void reservarAsiento3 ()
     {
-        vista.primeraClase3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
+        vista.primeraClase3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoPC.png")));
     }
     public void reservarAsiento4 ()
     {
-        vista.primeraClase4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
+        vista.primeraClase4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoPC.png")));
     }
     public void reservarAsiento5 ()
     {
-        vista.claseEjecutiva1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
+        vista.claseEjecutiva1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoEjecutivo.png")));
     }
     public void reservarAsiento6 ()
     {
-        vista.claseEjecutiva2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
+        vista.claseEjecutiva2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoEjecutivo.png")));
     }
     public void reservarAsiento7 ()
     {
-        vista.claseEjecutiva3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
+        vista.claseEjecutiva3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoEjecutivo.png")));
     }
     public void reservarAsiento8 ()
     {
@@ -246,11 +849,13 @@ public class ControladorSelectAsientos implements ActionListener {
     {
         vista.claseTurista16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoAsientoOcupado.png")));
     }
-    public void finalizarReserva()
-    {
-        //vista.dispose();
-        Menu menu=new Menu();
-        menu.setVisible(true);
-        vista.dispose();
-    }
+    
+    
+//    public void finalizarReserva()
+//    {
+//        //vista.dispose();
+//        Menu menu=new Menu();
+//        menu.setVisible(true);
+//        vista.dispose();
+//    }
 }

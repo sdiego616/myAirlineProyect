@@ -11,7 +11,8 @@ public class ControladorRegistro implements ActionListener, Login {
     public ControladorRegistro(Register rv)
     {
         this.registrov = rv;
-        registrov.btnRegistro.addActionListener(this);   
+        registrov.btnRegistro.addActionListener(this);  
+        
     }
 
     @Override
