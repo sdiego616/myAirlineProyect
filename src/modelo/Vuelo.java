@@ -5,8 +5,11 @@
  */
 package modelo;
 
+import com.mongodb.BasicDBObject;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -20,17 +23,39 @@ public class Vuelo {
     private double precio;
     private ArrayList<Equipaje> equipajes;
     private String estado;
+    
+    
+    ZoneId gmt = ZoneId.of("GMT");
+    LocalDateTime localDateTime = LocalDateTime.now();
+    LocalDate localDateNow = localDateTime.toLocalDate();
 
-    public Vuelo(String codigoVuelo, LocalDate fechaVuelo, LocalTime horaAbordaje, Avion avion, Piloto piloto, String destino, double precio, ArrayList<Equipaje> equipajes, String estado) {
-        this.codigoVuelo = codigoVuelo;
-        this.fechaVuelo = fechaVuelo;
-        this.horaAbordaje = horaAbordaje;
-        this.avion = avion;
-        this.piloto = piloto;
+    public Vuelo(int dia, int mes, int year, int hour, int min, String destino) {
+        this.codigoVuelo = piloto.numeroAleatorio();
+        this.fechaVuelo =  LocalDate.of(year, mes, dia);
+        
+        this.horaAbordaje = LocalTime.of(hour, min);
+        //this.avion = avion;
+        //this.piloto = piloto;
         this.destino = destino;
-        this.precio = precio;
-        this.equipajes = equipajes;
-        this.estado = estado;
+        //this.precio = precio;
+        //this.equipajes = equipajes;
+        //this.estado = estado;
+    }
+    
+    public Vuelo(){
+        this.codigoVuelo = String.valueOf(localDateNow.atStartOfDay(gmt).toEpochSecond());
+    }
+    
+    public BasicDBObject toDBVuelo()
+    {
+        BasicDBObject dbVuelo = new BasicDBObject();
+        
+        dbVuelo.append("codigoVuelo", this.getCodigoVuelo());
+        dbVuelo.append("destino", this.getDestino());
+        dbVuelo.append("fechaVuelo", this.getFechaVuelo());
+        dbVuelo.append("horaAbordaje", this.getHoraAbordaje());
+        
+        return dbVuelo;
     }
 
     public String getCodigoVuelo() {
@@ -103,6 +128,11 @@ public class Vuelo {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Vuelo{" + "codigoVuelo=" + codigoVuelo + ", fechaVuelo=" + fechaVuelo + ", horaAbordaje=" + horaAbordaje + ", destino=" + destino + ", localDateNow=" + localDateNow + '}';
     }
 
     

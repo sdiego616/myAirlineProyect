@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class PilotoDAO {
     public void insertarPiloto(Piloto p)
     {
-        ConexionMongo con = new ConexionMongo();
+        ConexionPasajeros con = new ConexionPasajeros();
         BasicDBObject documentoPiloto = new BasicDBObject();
         documentoPiloto.put("Nombre","'" + p.getNombre() + "'");
         documentoPiloto.put("Apelido","'" + p.getApellido() + "'");

@@ -74,6 +74,11 @@ public class ReservacionB extends javax.swing.JFrame {
         jLabel3.setText("Día:");
 
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione día" }));
+        cmbDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDiaActionPerformed(evt);
+            }
+        });
 
         cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione mes" }));
 
@@ -82,12 +87,27 @@ public class ReservacionB extends javax.swing.JFrame {
         jLabel5.setText("Año:");
 
         cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Año" }));
+        cmbYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbYearActionPerformed(evt);
+            }
+        });
 
         cmbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Hora" }));
+        cmbHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbHoraActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Hora:");
 
         cmbMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Minutos" }));
+        cmbMinutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMinutosActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Minutos:");
 
@@ -221,6 +241,22 @@ public class ReservacionB extends javax.swing.JFrame {
         sa.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSeleccionarActionPerformed
+
+    private void cmbDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDiaActionPerformed
+
+    private void cmbYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbYearActionPerformed
+
+    private void cmbHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbHoraActionPerformed
+
+    private void cmbMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMinutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbMinutosActionPerformed
 
     
     /**

@@ -3,15 +3,18 @@ package modelo;
 
 public class Equipaje {
     private String codigoEquipaje;
-    private double pesoEquipaje;
+    private String pesoEquipaje;
     private Pasajero propietario;
     private String descripcion;
 
-    public Equipaje(String codigoEquipaje, double pesoEquipaje, Pasajero propietario, String descripcion) {
+    public Equipaje(String codigoEquipaje, String pesoEquipaje, Pasajero propietario, String descripcion) {
         this.codigoEquipaje = codigoEquipaje;
         this.pesoEquipaje = pesoEquipaje;
         this.propietario = propietario;
         this.descripcion = descripcion;
+    }
+
+    public Equipaje() {
     }
 
     public String getCodigoEquipaje() {
@@ -22,13 +25,14 @@ public class Equipaje {
         this.codigoEquipaje = codigoEquipaje;
     }
 
-    public double getPesoEquipaje() {
+    public String getPesoEquipaje() {
         return pesoEquipaje;
     }
 
-    public void setPesoEquipaje(double pesoEquipaje) {
+    public void setPesoEquipaje(String pesoEquipaje) {
         this.pesoEquipaje = pesoEquipaje;
     }
+    
 
     public Pasajero getPropietario() {
         return propietario;
@@ -48,7 +52,7 @@ public class Equipaje {
 
     @Override
     public String toString() {
-        return "Equipaje{" + "codigoEquipaje=" + codigoEquipaje + ", pesoEquipaje=" + pesoEquipaje + ", propietario=" + propietario + ", descripcion=" + descripcion + '}';
+        return "Equipaje{" + "codigoEquipaje=" + codigoEquipaje + ", pesoEquipaje=" + pesoEquipaje +  ", descripcion=" + descripcion + '}';
     }
     
     

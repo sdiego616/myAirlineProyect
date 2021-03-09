@@ -7,27 +7,40 @@ import java.util.ArrayList;
 import static java.util.Collections.list;
 
 public class PasajeroDAO {
+
+    public PasajeroDAO() {
+    }
+    
+    
     public void insertarPasajero(Pasajero pa)
     {
-        ConexionMongo cox = new ConexionMongo();
+        ConexionPasajeros cox = new ConexionPasajeros();
         BasicDBObject documentoPasajero = new BasicDBObject();
-        documentoPasajero.put("Nombre","'" + pa.getNombre() + "'");
-        documentoPasajero.put("Apelido","'" + pa.getApellido() + "'");
-        documentoPasajero.put("Dirección","'" + pa.getDireccion() + "'");
-        documentoPasajero.put("Celular","'" + pa.getCelular() + "'");
-        documentoPasajero.put("Dirección","'" + pa.getDireccion() + "'");
-        documentoPasajero.put("Correo","'" + pa.getCorreo() + "'");
-        documentoPasajero.put("Correo","'" + pa.getCorreo() + "'");
-        documentoPasajero.put("Correo","'" + pa.getCorreo() + "'");
-        documentoPasajero.put("Código Pasajero","'" + pa.getCodigoPasajero() + "'");
-        documentoPasajero.put("Equipaje","'" + pa.getEquipajes() + "'");
-        documentoPasajero.put("Asiento","'" + pa.getTipoAsiento() + "'");
+        documentoPasajero.put("nombre", pa.getNombre()  );
+        documentoPasajero.put("apellido",  pa.getApellido() );
+        documentoPasajero.put("celular", pa.getCelular());
+        documentoPasajero.put("dirección", pa.getDireccion());
+        documentoPasajero.put("correo", pa.getCorreo());
+        documentoPasajero.put("codigoPasajero", pa.getCodigoPasajero() );
+        documentoPasajero.put("equipajes","'" +pa.getEquipajes()+"'");
+        //documentoPasajero.put("tipoAsiento","'" + pa.getTipoAsiento() + "'");
+        //documentoPasajero.put("vuelo","'" + pa.getVuelo() + "'");
         cox.coleccion.insert(documentoPasajero);
     }
     
     public ArrayList obtenerPasajeros()
     {
-        ArrayList listaPasajeros = new ArrayList<>();
+        ArrayList <Pasajero> listaPasajeros = new ArrayList<Pasajero>();
+        ConexionPasajeros con = new ConexionPasajeros();
+        Pasajero ps;
+        DBCursor cursor = con.coleccion.find();
+        while (cursor.hasNext())
+        {
+            ps = new Pasajero ((String) cursor.next().get("nombre"), (String) cursor.curr().get("apellido"), (String) cursor.curr().get("celular"),
+            (String) cursor.curr().get("direccion"),(String) cursor.curr().get("correo"));
+            ps.setCodigoPasajero((String) cursor.curr().get("codigoPasajero"));
+            listaPasajeros.add(ps);
+        }
         return listaPasajeros;
         
     }

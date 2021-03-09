@@ -16,6 +16,9 @@ public class Persona {
         this.correo = correo;
     }
 
+    public Persona() {
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -61,6 +64,10 @@ public class Persona {
         return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", celular=" + celular + ", direccion=" + direccion + ", correo=" + correo + '}';
     }
     
-    
+    public String numeroAleatorio()
+    {
+        int numAleatorio = (int) (Math.random()*1000000000);
+        return String.valueOf(numAleatorio);
+    }
     
 }
