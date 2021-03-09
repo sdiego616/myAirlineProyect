@@ -24,7 +24,6 @@ public class SeleccionarAsientosFrm extends javax.swing.JFrame {
     public SeleccionarAsientosFrm() {
         this.setContentPane(fondo);
         initComponents();
-        
     }
 
     /**
@@ -91,6 +90,7 @@ public class SeleccionarAsientosFrm extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        cmbPasajeros = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -486,10 +486,26 @@ public class SeleccionarAsientosFrm extends javax.swing.JFrame {
 
         jLabel30.setText("4");
 
+        cmbPasajeros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pasajero" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(jLabel7)
+                .addGap(102, 102, 102)
+                .addComponent(claseTurista13)
+                .addGap(15, 15, 15)
+                .addComponent(claseTurista14)
+                .addGap(15, 15, 15)
+                .addComponent(claseTurista15)
+                .addGap(15, 15, 15)
+                .addComponent(claseTurista16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
+                .addComponent(btnReservar)
+                .addGap(84, 84, 84))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -600,22 +616,9 @@ public class SeleccionarAsientosFrm extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(jLabel29)
                         .addGap(73, 73, 73)
-                        .addComponent(jLabel30)))
-                .addContainerGap(353, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(jLabel7)
-                .addGap(102, 102, 102)
-                .addComponent(claseTurista13)
-                .addGap(15, 15, 15)
-                .addComponent(claseTurista14)
-                .addGap(15, 15, 15)
-                .addComponent(claseTurista15)
-                .addGap(15, 15, 15)
-                .addComponent(claseTurista16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnReservar)
-                .addGap(84, 84, 84))
+                        .addComponent(jLabel30))
+                    .addComponent(cmbPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -726,11 +729,14 @@ public class SeleccionarAsientosFrm extends javax.swing.JFrame {
                             .addComponent(claseTurista14)
                             .addComponent(claseTurista15)
                             .addComponent(claseTurista16))
-                        .addContainerGap(22, Short.MAX_VALUE))
+                        .addContainerGap(26, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnReservar)
                         .addGap(54, 54, 54))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(cmbPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -851,6 +857,7 @@ public class SeleccionarAsientosFrm extends javax.swing.JFrame {
     public static void main(String args[]) {
         SeleccionarAsientosFrm v = new SeleccionarAsientosFrm();
         ControladorSelectAsientos csa = new ControladorSelectAsientos(v);
+        csa.setCombPs();
         v.setVisible(true);
         v.setLocationRelativeTo(v);
     }
@@ -876,6 +883,7 @@ public class SeleccionarAsientosFrm extends javax.swing.JFrame {
     public javax.swing.JButton claseTurista7;
     public javax.swing.JButton claseTurista8;
     public javax.swing.JButton claseTurista9;
+    public javax.swing.JComboBox<String> cmbPasajeros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

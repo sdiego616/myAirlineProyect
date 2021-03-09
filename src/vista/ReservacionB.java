@@ -5,6 +5,11 @@
  */
 package vista;
 
+import controlador.ControladorReservacionA;
+import controlador.ControladorReservacionB;
+import modelo.Pasajero;
+import modelo.PasajeroDAO;
+
 /**
  *
  * @author TOSHIBA
@@ -22,6 +27,7 @@ public class ReservacionB extends javax.swing.JFrame {
         llenarYear();
         llenarHora();
         llenarMinutos();
+        
     }
 
     /**
@@ -50,6 +56,7 @@ public class ReservacionB extends javax.swing.JFrame {
         btnSeleccionar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        cmbPasajero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,12 +102,29 @@ public class ReservacionB extends javax.swing.JFrame {
 
         jLabel9.setText("Hora de Abordaje");
 
+        cmbPasajero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pasajero" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(btnSeleccionar)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8))))
+                .addContainerGap(265, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(163, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -130,22 +154,8 @@ public class ReservacionB extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(78, 78, 78)
                         .addComponent(cmbDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(155, 155, 155))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(btnSeleccionar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(155, 155, 155))
+                    .addComponent(cmbPasajero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +192,9 @@ public class ReservacionB extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addComponent(btnSeleccionar)
-                .addGap(109, 109, 109))
+                .addGap(74, 74, 74)
+                .addComponent(cmbPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,6 +216,7 @@ public class ReservacionB extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbDestinoActionPerformed
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        
         SeleccionarAsientosFrm sa = new SeleccionarAsientosFrm();
         sa.setVisible(true);
         dispose();
@@ -214,35 +227,19 @@ public class ReservacionB extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReservacionB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReservacionB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReservacionB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReservacionB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+//        
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ReservacionB().setVisible(true);
+//            }
+//        });
+        
+        ReservacionB vistarb = new ReservacionB();
+        ControladorReservacionB cRes = new ControladorReservacionB(vistarb);
+        cRes.setCombPs();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ReservacionB().setVisible(true);
-            }
-        });
+        vistarb.setVisible(true);
+        vistarb.setLocationRelativeTo(vistarb);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -252,6 +249,7 @@ public class ReservacionB extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbHora;
     public javax.swing.JComboBox<String> cmbMes;
     public javax.swing.JComboBox<String> cmbMinutos;
+    public javax.swing.JComboBox<String> cmbPasajero;
     public javax.swing.JComboBox<String> cmbYear;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
@@ -293,7 +291,7 @@ public class ReservacionB extends javax.swing.JFrame {
     }
     private void llenarYear()
     {
-        String[]Year ={"2021","2022","2023","2024","2025","2026","2027",
+        String[]Year ={"2020","2021","2022","2023","2024","2025","2026","2027",
             "2028","2029","2030","2031","2032"};
         for(String vuelo: Year)
         {
@@ -318,4 +316,18 @@ public class ReservacionB extends javax.swing.JFrame {
             cmbMinutos.addItem(vuelo);
         }
     }
+//    public void setCombPs()
+//    {
+//        dao.obtenerPasajeros();
+//        //String [] nameLast = new String [dao.obtenerPasajeros().size()];
+//        String aux;
+//        Pasajero auxps;
+//        for (int i = 0; i < dao.obtenerPasajeros().size(); i ++)
+//        {
+//            auxps = (Pasajero) dao.obtenerPasajeros().get(i);
+//            aux = auxps.getNombre() + auxps.getApellido();
+//            //nameLast [i] = aux;
+//            resB.cmbPasajero.addItem(aux);
+//        }
+//    }
 }

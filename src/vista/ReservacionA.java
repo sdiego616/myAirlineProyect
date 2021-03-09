@@ -217,7 +217,7 @@ public class ReservacionA extends javax.swing.JFrame {
     public static void main(String args[]) {
         
         ReservacionA rev = new ReservacionA ();
-        ControladorReservacionA cra = new ControladorReservacionA();
+        ControladorReservacionA cra = new ControladorReservacionA(rev);
         rev.setVisible(true);
         rev.setLocationRelativeTo(rev);
         
